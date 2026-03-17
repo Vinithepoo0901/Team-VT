@@ -1,15 +1,5 @@
-infos = [
-    
-    {"Marque":"Toyota", "Modele":"Corolla"},
-    {"Marque":"Nissan", "Modele":"Altima"}
-
-]
-
-question_01 = input("Quel Marque?")
-
-if question_01 in infos :
-    print(infos["question_01"])
-
-else :
-    print("erreur")
-    
+print("Guide de selection de vehicule pour concessionnaire")
+print("Quel est la marque du vehicule?")
+print("Quel est votre budget ?")
+print("Quel est votre preference de sorte")
+print("Quel consommation votre vehicule devrait avoir?")
