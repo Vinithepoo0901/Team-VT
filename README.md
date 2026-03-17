@@ -1,2 +1,10 @@
-# Team-VT
-Projet 2, Vincent Goulet-Tommy Brunelle
+# Team-VT : Projet 2
+
+## But
+
+## Entrée
+
+## Sortie
+
+## Thème
+
