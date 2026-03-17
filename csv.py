@@ -1,0 +1,5 @@
+print("Guide de selection de vehicule pour concessionnaire")
+print("Quel est la marque du vehicule?")
+print("Quel est votre budget ?")
+print("Quel est votre preference de sorte")
+print("Quel consommation votre vehicule devrait avoir?")
