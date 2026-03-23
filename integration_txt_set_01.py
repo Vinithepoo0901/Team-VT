@@ -25,12 +25,21 @@ txt.close()
 
 #Réponse donnée par l'utilisateur
 question_01 = input("Quelle marque: ")
+question_02 = input("Quelle transmission: ")
+
+#Variable pour empecher que le message d<erreur print plusieurs fois dans le for loop.
+option_existe = False
 
 #Pour chaque set dans la liste "infos"
 for voiture_set in infos:
 
     # Si la réponse de l'utilisateur est présente dans un des Set de la liste "infos"
-    if question_01 in voiture_set:
+    if question_01 in voiture_set and question_02 in voiture_set:
+
+        option_existe = True
 
         # Imprime le/les Set.s où la réponse est présente
         print(voiture_set)
+
+if option_existe == False: 
+    print("Nous n'avons aucune voiture qui correspond à l'entièreté de vos critères. Désolé.")
