@@ -1,19 +1,16 @@
 import tkinter as tk
-import integration_csv_dictionnaire as lecsv
+import integration_dictionnaire_02 as csvi
 
 choix = [] #Liste vide qui va devenir notre liste d'options choisies final.
 
-marque = list(set([dictionnaire["Marque"] for dictionnaire in lecsv.infos]))
-type = list(set([dictionnaire["Type"] for dictionnaire in lecsv.infos]))
-consomation = list(set([dictionnaire["Consomation"] for dictionnaire in lecsv.infos]))
-prix = list(set([dictionnaire["Prix de depart"] for dictionnaire in lecsv.infos]))
+marques = list(set([dictionnaire["Marque"] for dictionnaire in csvi.infos]))
+modeles = list(set([dictionnaire["Modèle"] for dictionnaire in csvi.infos]))
 
 #Liste de nos questions (Va falloir trouver le moyen de changer ca par dequoi qui va chercher nos valeurs direct dans le .csv et .txt)
 questions = [
-    {"question": "Quelle Marque ?", "options": marque},
-    {"question": "Quel type ?", "options": type},
-    {"question": "Quel consommation ?", "options": consomation},
-    {"question": "Quel est votre budget ?", "options": prix}
+    {"question": "Quelle Marque ?", "options": marques},
+    {"question": "Quel modèle?", "options": modeles},
+    {"question": "Automatique ou manuel?", "options": ["Automatique", "Manuel", "Peu importe"]}
 ]
 
 # Nous permet d'aller chercher le dictionnaire qu'on veut dans la liste questions pour nos fonctions.
@@ -58,10 +55,7 @@ def choisir_option(choix_selectionner):
         # Relancer la fonction montrer_question_actuelle
         montrer_question_actuelle()
     else: # Si question_actuelle == len(questions)
-        resultat = open("resultat.txt", "w")
-        resultat.write(f"{choix}")
-        resultat.close()
-        
+        print("Ce que vous voulez:", choix)
         root.destroy() #ferme notre menu de bouton tkinter
 
 # Creer/lancer notre fenetre tkinter

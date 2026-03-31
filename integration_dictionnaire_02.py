@@ -14,10 +14,9 @@ for ligne in liste_voiture:
 
     #transforme les elements de la liste de chaque ligne en dictionnaire
     dictionnaire = {
-        "Marque": detail[1],
-        "Type": detail[2],
-        "Consomation" : detail[3],
-        "Prix de depart" : detail[4]
+        "Marque": detail[0],
+        "Modèle": detail[1],
+        "Transmission": detail[2]
     }
 
     #on ajoute le set dans la liste infos
@@ -26,5 +25,4 @@ for ligne in liste_voiture:
 #ferme le fichier
 csv.close()
 
-print (detail[0])
-
+print(infos[1]["Marque"])
