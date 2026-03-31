@@ -1,4 +1,4 @@
-csv = open("test.csv", "r") #r pour lecture
+csv = open("Projet-2-excel.csv", "r") #r pour lecture
 liste_voiture = csv.readlines() #lire tout et vient creer une liste et chaque ligne de la liste est un element
 
 infos = [] #Liste vide
