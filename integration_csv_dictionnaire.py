@@ -14,10 +14,10 @@ for ligne in liste_voiture:
 
     #transforme les elements de la liste de chaque ligne en dictionnaire
     dictionnaire = {
-        "Marque": detail[0],
-        "Type": detail[1],
-        "Consomation" : detail[2],
-        "Prix de depart" : detail[3]
+        "Marque": detail[1],
+        "Type": detail[2],
+        "Consomation" : detail[3],
+        "Prix de depart" : detail[4]
     }
 
     #on ajoute le set dans la liste infos
