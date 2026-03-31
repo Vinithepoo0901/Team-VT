@@ -58,7 +58,10 @@ def choisir_option(choix_selectionner):
         # Relancer la fonction montrer_question_actuelle
         montrer_question_actuelle()
     else: # Si question_actuelle == len(questions)
-        print("Ce que vous voulez:", choix)
+        resultat = open("resultat.txt", "w")
+        resultat.write(f"{choix}")
+        resultat.close()
+        
         root.destroy() #ferme notre menu de bouton tkinter
 
 # Creer/lancer notre fenetre tkinter
