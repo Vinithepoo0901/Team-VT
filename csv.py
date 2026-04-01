@@ -2,6 +2,8 @@ import tkinter as tk
 import integration_csv_dictionnaire as lecsv
 import integration_txt_set_01 as txt
 
+#allo
+
 choix = [] #Liste vide qui va devenir notre liste d'options choisies final.
 
 marque = list(set(dictionnaire["Marque"] for dictionnaire in lecsv.infos))
@@ -65,16 +67,21 @@ def choisir_option(choix_selectionner):
     else: # Si question_actuelle == len(questions)
         resultat = open("resultat.txt", "w")
 
+        voiture_compatible = False #Pour ne pas write "aucun match 70000000 fois"
+
         for i in lecsv.infos:
             if (
             i["Marque"] == choix[0] and
             i["Type"] == choix[1] and
             i["Consomation"] == choix[2] and
-            i["Prix de depart"] == choix[3]
-            ):
-                resultat.write("Voiture qui correspondent a vos criteres: ")
+            i["Prix de depart"] == choix[3]):
+                resultat.write("Voitures qui correspondent a vos criteres: ")
                 resultat.write(i["Modele"])
 
+                voiture_compatible = True
+
+        if voiture_compatible == False:
+            resultat.write("Aucun match dsl")
 
         resultat.close()
         
