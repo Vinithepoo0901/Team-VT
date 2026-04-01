@@ -1,1 +1,1 @@
-['Toyota', 'Compacte', 'Gaz', '30 000 $', 'Automatique', 'Traction avant']
+Corolla

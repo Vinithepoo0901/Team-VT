@@ -72,7 +72,7 @@ def choisir_option(choix_selectionner):
             i["Consomation"] == choix[2] and
             i["Prix de depart"] == choix[3]
             ):
-                resultat.write(f"{choix}")
+                resultat.write(i["Modele"])
 
 
         resultat.close()
