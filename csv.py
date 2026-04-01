@@ -74,8 +74,6 @@ def choisir_option(choix_selectionner):
             ):
                 resultat.write(f"{choix}")
 
-            else:
-                resultat.write("Malheureusement aucune de nos voitures repond a vos criteres")
 
         resultat.close()
         
