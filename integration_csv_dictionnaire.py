@@ -14,6 +14,7 @@ for ligne in liste_voiture:
 
     #transforme les elements de la liste de chaque ligne en dictionnaire
     dictionnaire = {
+        "Modele": detail[0],
         "Marque": detail[1],
         "Type": detail[2],
         "Consomation" : detail[3],
