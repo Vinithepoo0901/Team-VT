@@ -1,1 +1,1 @@
-['Toyota', 'VUS-Compacte', 'Electrique', '55 000 $']
+['Dodge', 'Hatchback', 'Gaz', '40 000 $', 'Automatique', 'Traction arriere']
