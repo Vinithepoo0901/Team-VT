@@ -64,7 +64,19 @@ def choisir_option(choix_selectionner):
         montrer_question_actuelle()
     else: # Si question_actuelle == len(questions)
         resultat = open("resultat.txt", "w")
-        resultat.write(f"{choix}")
+
+        for i in lecsv.infos:
+            if (
+            i["Marque"] == choix[0] and
+            i["Type"] == choix[1] and
+            i["Consomation"] == choix[2] and
+            i["Prix de depart"] == choix[3]
+            ):
+                resultat.write(f"{choix}")
+
+            else:
+                resultat.write("Malheureusement aucune de nos voitures repond a vos criteres")
+
         resultat.close()
         
         root.destroy() #ferme notre menu de bouton tkinter
