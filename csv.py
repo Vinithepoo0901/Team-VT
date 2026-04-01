@@ -1,19 +1,24 @@
 import tkinter as tk
 import integration_csv_dictionnaire as lecsv
+import integration_txt_set_01 as txt
 
 choix = [] #Liste vide qui va devenir notre liste d'options choisies final.
 
-marque = list(set([dictionnaire["Marque"] for dictionnaire in lecsv.infos]))
-type = list(set([dictionnaire["Type"] for dictionnaire in lecsv.infos]))
-consomation = list(set([dictionnaire["Consomation"] for dictionnaire in lecsv.infos]))
-prix = list(set([dictionnaire["Prix de depart"] for dictionnaire in lecsv.infos]))
+marque = list(set(dictionnaire["Marque"] for dictionnaire in lecsv.infos))
+type = list(set(dictionnaire["Type"] for dictionnaire in lecsv.infos))
+consomation = list(set(dictionnaire["Consomation"] for dictionnaire in lecsv.infos))
+prix = list(set(dictionnaire["Prix de depart"] for dictionnaire in lecsv.infos))
+transmission = list(set(i[0] for i in txt.infos_01))
+traction = list(set(i[1] for i in txt.infos_01))
 
 #Liste de nos questions (Va falloir trouver le moyen de changer ca par dequoi qui va chercher nos valeurs direct dans le .csv et .txt)
 questions = [
     {"question": "Quelle Marque ?", "options": marque},
     {"question": "Quel type ?", "options": type},
     {"question": "Quel consommation ?", "options": consomation},
-    {"question": "Quel est votre budget ?", "options": prix}
+    {"question": "Quel est votre budget ?", "options": prix},
+    {"question": "Quelle transmission?", "options": transmission},
+    {"question": "Quelle traction?", "options": traction}
 ]
 
 # Nous permet d'aller chercher le dictionnaire qu'on veut dans la liste questions pour nos fonctions.

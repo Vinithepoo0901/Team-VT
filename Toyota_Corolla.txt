@@ -1,2 +1,2 @@
-Toyota, Corolla, Automatique, Traction avant, Aucune preference
-Nissan, Altima, Manuel, Traction arriere, Aucune preference
+Automatique, Traction avant
+Manuel, Traction arriere
