@@ -72,6 +72,7 @@ def choisir_option(choix_selectionner):
             i["Consomation"] == choix[2] and
             i["Prix de depart"] == choix[3]
             ):
+                resultat.write("Voiture qui correspondent a vos criteres: ")
                 resultat.write(i["Modele"])
 
 
