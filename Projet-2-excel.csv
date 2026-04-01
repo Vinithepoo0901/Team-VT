@@ -1,10 +1,10 @@
-﻿ ;Chevrolet;VUS;Electrique;45 000 $ 
- ;Chevrolet;VUS;Gaz;30 000 $ 
- ;Chevrolet;Coupe sport;Gaz;90 000 $ 
- ;Chevrolet;Hatchback;Gaz;15 000 $ 
- ;Dodge;Coupe sport;Electrique;55 000 $ 
- ;Dodge;Familiale ;Gaz;25 000 $ 
- ;Honda;Compacte;Gaz;30 000 $ 
- ;Honda;VUS;Gaz;40 000 $ 
- ;Honda;VUS-Compacte;Gaz;30 000 $ 
- ;Toyota;Compacte;Gaz;30 000 $ 
+﻿ Equinox;Chevrolet;VUS;Electrique;45 000 $ 
+ Trailblazer;Chevrolet;VUS;Gaz;30 000 $ 
+ Corvette;Chevrolet;Coupe sport;Gaz;90 000 $ 
+ Spark;Chevrolet;Hatchback;Gaz;15 000 $ 
+ Charger;Dodge;Coupe sport;Electrique;55 000 $ 
+ Caravan;Dodge;Familiale;Gaz;25 000 $ 
+ Civic;Honda;Compacte;Gaz;30 000 $ 
+ Cr-V;Honda;VUS;Gaz;40 000 $ 
+ Hr-V;Honda;VUS-Compacte;Gaz;30 000 $ 
+ Corolla;Toyota;Compacte;Gaz;30 000 $ 
