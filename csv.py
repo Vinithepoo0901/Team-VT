@@ -2,6 +2,8 @@ import tkinter as tk
 import integration_csv_dictionnaire as lecsv
 import integration_txt_set_01 as txt
 
+#allo
+
 choix = [] #Liste vide qui va devenir notre liste d'options choisies final.
 
 marque = list(set(dictionnaire["Marque"] for dictionnaire in lecsv.infos))
