@@ -17,11 +17,11 @@ for ligne in liste_voiture:
 
     # La variable qui vient placer chaque detail de notre .split à une catégorie dans un dictionnaire.
     dictionnaire = {
-        "Modele": detail[0],
-        "Marque": detail[1],
-        "Type": detail[2],
-        "Consomation" : detail[3],
-        "Prix" : detail[4]
+        "Modele": detail[1],
+        "Marque": detail[2],
+        "Type": detail[3],
+        "Consomation" : detail[4],
+        "Prix" : detail[5]
         }
 
     # Ajouter le dictionnaire créé à la fin de la liste infos.
