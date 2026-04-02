@@ -27,5 +27,4 @@ for ligne in liste_voiture:
 #ferme le fichier
 csv.close()
 
-print (detail[0])
 
