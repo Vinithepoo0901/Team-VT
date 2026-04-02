@@ -1,30 +1,26 @@
-csv = open("caracteristiques.csv", "r") #r pour lecture
-liste_voiture = csv.readlines() #lire tout et vient creer une liste et chaque ligne de la liste est un element
+csv = open("caracteristiques.csv", "r")
+liste_voiture = csv.readlines()
 
-infos = [] #Liste vide
+# La liste vide qui sert à stocker nos dictionnaires finaux créés à partir du .csv.
+infos = [] 
 
-#Pour chaque ligne dans le .txt
 for ligne in liste_voiture:
 
-    #strip pour enlever les espaces au debut et a la fin
     ligne = ligne.strip()
-
-    #split pour creer des elements
     detail = ligne.split(";")
 
-    #transforme les elements de la liste de chaque ligne en dictionnaire
+    # La variable qui vient placer chaque detail de notre .split à une catégorie dans un dictionnaire.
     dictionnaire = {
         "Modele": detail[0],
         "Marque": detail[1],
         "Type": detail[2],
         "Consomation" : detail[3],
-        "Prix de depart" : detail[4]
-    }
+        "Prix" : detail[4]
+        }
 
-    #on ajoute le set dans la liste infos
+    # Ajouter le dictionnaire créé à la fin de la liste infos.
     infos.append(dictionnaire)
 
-#ferme le fichier
 csv.close()
 
 

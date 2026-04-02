@@ -15,7 +15,7 @@ choix = [] #Liste vide qui va devenir notre liste d'options choisies final.
 marque = list(set(dictionnaire["Marque"] for dictionnaire in lecsv.infos))
 type = list(set(dictionnaire["Type"] for dictionnaire in lecsv.infos))
 consomation = list(set(dictionnaire["Consomation"] for dictionnaire in lecsv.infos))
-prix = list(set(dictionnaire["Prix de depart"] for dictionnaire in lecsv.infos))
+prix = list(set(dictionnaire["Prix"] for dictionnaire in lecsv.infos))
 transmission = list(set(i[0] for i in txt.infos_01))
 traction = list(set(i[1] for i in txt.infos_01))
 
@@ -80,7 +80,7 @@ def choisir_option(choix_selectionner):
                 i["Marque"] == choix[0] and
                 i["Type"] == choix[1] and
                 i["Consomation"] == choix[2] and
-                i["Prix de depart"] == choix[3]):
+                i["Prix"] == choix[3]):
                 
                 for texte in txt.infos_01:
                     if (
