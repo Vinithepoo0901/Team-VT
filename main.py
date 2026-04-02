@@ -8,18 +8,19 @@ import tkinter as tk
 import integration_csv_dictionnaire as lecsv
 import integration_txt_tuple as txt
 
-#allo
+# La liste vide qui sert à stocker nos choix finaux sélectionnés à partir du tkinter.
+choix_finaux = []
 
-choix = [] #Liste vide qui va devenir notre liste d'options choisies final.
-
+# Les variables qui contiennent une liste créée avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
+# set efface les doublons présents et list vient indexer le tout pour pouvoir utiliser nos données. 
 marque = list(set(dictionnaire["Marque"] for dictionnaire in lecsv.infos))
 type = list(set(dictionnaire["Type"] for dictionnaire in lecsv.infos))
 consomation = list(set(dictionnaire["Consomation"] for dictionnaire in lecsv.infos))
 prix = list(set(dictionnaire["Prix"] for dictionnaire in lecsv.infos))
-transmission = list(set(i[0] for i in txt.infos_supplementaire))
-traction = list(set(i[1] for i in txt.infos_supplementaire))
+transmission = list(set(tuple[1] for tuple in txt.infos_supplementaire))
+traction = list(set(tuple[2] for tuple in txt.infos_supplementaire))
 
-#Liste de nos questions (Va falloir trouver le moyen de changer ca par dequoi qui va chercher nos valeurs direct dans le .csv et .txt)
+# Variable qui contient la liste de dictionnaires utilisés pour générer les titres et les choix de notre tkinter.
 questions = [
     {"question": "Quelle Marque ?", "options": marque},
     {"question": "Quel type ?", "options": type},
@@ -29,79 +30,98 @@ questions = [
     {"question": "Quelle traction?", "options": traction}
 ]
 
-# Nous permet d'aller chercher le dictionnaire qu'on veut dans la liste questions pour nos fonctions.
+# Variable à insérer dans nos fonctions qui permet de générer tous les menus tkinter nécessaires.
 question_actuelle = 0
 
 def montrer_question_actuelle():
-    #On apporte la valeur globale de question_actuelle dans la fonction au-lieu d<en creer une.
+
+    """
+    Entrées: Les strings établis pour les titres/questions et les éléments dans la liste "options".
+    Sortie: Les choix sélectionnés sur chaque menu tkinter.
+    But: Permettre de générer une boite contextuelle avec questions et options à choisir.
+
+    """
+
     global question_actuelle
 
-    # Effacer la fenêtre juste avant de construire la prochaine. (Merci google)
+    # Effacer le contenu du menu tkinter affiché avant de générer le prochain.
     for widget in root.winfo_children():
         widget.destroy()
 
-    # Pour le titre/question de chaque box
+    # Générer le titre du menu tkinter.
     tk.Label(
         root,
-        text=questions[question_actuelle]["question"],
-        font=("Arial", 12, "bold")
-    ).pack(pady=12) #.pack ajoute le tk.label dans la fenetre ouverte et pady est juste l'espace vertical ajoutee en haut et en bas du texte
+        text = questions[question_actuelle]["question"],
+        font = ("Arial", 12, "bold")
+        ).pack(pady = 12) 
 
-    # Pour afficher les options dans la box
-    for i in questions[question_actuelle]["options"]:
+    # Générer les choix dans le menu tkinter.
+    for element in questions[question_actuelle]["options"]:
         tk.Button(
             root,
-            text=i,
-            width=20,
-            command=lambda choix=i: choisir_option(choix)
-            #command=lambda permet de faire qqchose juste quand un bouton est cliqué
-            #Donc quand on clique sur ce que l'on veut, command= lance la fonction choisir_option
-        ).pack(pady=6)
+            text = element,
+            width = 20,
+            #
+            command = lambda choix = element: choisir_option(choix)
+            ).pack(pady = 6)
 
 
 def choisir_option(choix_selectionner):
+
+    """
+    Entrées: Les choix sélectionnés sur chaque menu tkinter de la fonction précédente.
+    Sortie: Un fichier .txt
+    But: Permettre au client de voir quel véhicule correspond à ses critères et si nous l'avons en stock.
+
+    """
+
     global question_actuelle
 
-    choix.append(choix_selectionner) #On vient ajouter le choix cliqué dans notre liste finale "choix"
+    # Ajouter le choix sélectionné à la fin de la liste choix_finaux.
+    choix_finaux.append(choix_selectionner)
 
-    question_actuelle += 1 #On change la valeur de la variable globale question_actuelle
+    # Changer la valeur de la variable globale question_actuelle pour générer la prochaine question.
+    question_actuelle += 1
 
-    # Si valeur question_actuelle < longueur de mon nombre d<elements dans la liste "questions" (len = 3)
+    # Si la valeur de question_actuelle < 5, on relance la fonction montrer_question_actuelle
     if question_actuelle < len(questions):
-        # Relancer la fonction montrer_question_actuelle
         montrer_question_actuelle()
-    else: # Si question_actuelle == len(questions)
+
+    # Si question_actuelle == len(questions)
+    else:
         resultat = open("resultat.txt", "w")
 
-        voiture_compatible = False #Pour ne pas write "aucun match 70000000 fois"
+        # Variable pour éviter de write "Aucune de nos voitures ne correspond à vos critères" pour chaque véhicule qui ne correspond pas.
+        voiture_compatible = False
 
-        for i in lecsv.infos:
+        for dictionnaire in lecsv.infos:
             if (
-                i["Marque"] == choix[0] and
-                i["Type"] == choix[1] and
-                i["Consomation"] == choix[2] and
-                i["Prix"] == choix[3]):
+                dictionnaire["Marque"] == choix_finaux[0] and
+                dictionnaire["Type"] == choix_finaux[1] and
+                dictionnaire["Consomation"] == choix_finaux[2] and
+                dictionnaire["Prix"] == choix_finaux[3]):
                 
                 for texte in txt.infos_supplementaire:
                     if (
-                        texte[0] == choix[4] and
-                        texte[1] == choix[5]):
+                        texte[0] == dictionnaire["Modele"] and
+                        texte[1] == choix_finaux[4] and
+                        texte[2] == choix_finaux[5]):
 
                         resultat.write("Voitures qui correspondent a vos criteres: \n")
-                        resultat.write("-" + i["Modele"])
+                        resultat.write("-" + dictionnaire["Modele"])
 
                         voiture_compatible = True
+                        break
 
         if voiture_compatible == False:
-            resultat.write("Aucun match dsl")
+            resultat.write("Aucune de nos voitures ne correspond à vos critères")
 
         resultat.close()
-        
-        root.destroy() #ferme notre menu de bouton tkinter
+        root.destroy() 
 
-# Creer/lancer notre fenetre tkinter
+# Créer/lancer notre fenêtre tkinter.
 root = tk.Tk()
-
-#Creer tout ce qu<il y a dans notre fenetre tkinter
 montrer_question_actuelle()
-root.mainloop() #Permet de runner tkinter et de pouvoir cliquer sur les options et faire que command= soit fonctionnel.
+
+#Permet d'utiliser tkinter et faire que command= soit fonctionnel.
+root.mainloop()
