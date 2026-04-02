@@ -5,20 +5,20 @@ Nom: Tommy Brunelle, Vincent Goulet
 
 """
 import tkinter as tk
-import integration_csv_dictionnaire as lecsv
-import integration_txt_tuple as txt
+import integration_csv_dictionnaire as le_csv
+import integration_txt_tuple as le_txt
 
 # La liste vide qui sert à stocker nos choix finaux sélectionnés à partir du tkinter.
 choix_finaux = []
 
 # Les variables qui contiennent une liste créée avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
 # set efface les doublons présents et list vient indexer le tout pour pouvoir utiliser nos données. 
-marque = list(set(dictionnaire["Marque"] for dictionnaire in lecsv.infos))
-type = list(set(dictionnaire["Type"] for dictionnaire in lecsv.infos))
-consomation = list(set(dictionnaire["Consomation"] for dictionnaire in lecsv.infos))
-prix = list(set(dictionnaire["Prix"] for dictionnaire in lecsv.infos))
-transmission = list(set(tuple[1] for tuple in txt.infos_supplementaire))
-traction = list(set(tuple[2] for tuple in txt.infos_supplementaire))
+marque = list(set(dictionnaire["Marque"] for dictionnaire in le_csv.infos))
+type = list(set(dictionnaire["Type"] for dictionnaire in le_csv.infos))
+consomation = list(set(dictionnaire["Consomation"] for dictionnaire in le_csv.infos))
+prix = list(set(dictionnaire["Prix"] for dictionnaire in le_csv.infos))
+transmission = list(set(tuple[1] for tuple in le_txt.infos_supplementaire))
+traction = list(set(tuple[2] for tuple in le_txt.infos_supplementaire))
 
 # Variable qui contient la liste de dictionnaires utilisés pour générer les titres et les choix de notre tkinter.
 questions = [
@@ -87,21 +87,20 @@ def choisir_option(choix_selectionner):
     if question_actuelle < len(questions):
         montrer_question_actuelle()
 
-    # Si question_actuelle == len(questions)
     else:
         resultat = open("resultat.txt", "w")
 
         # Variable pour éviter de write "Aucune de nos voitures ne correspond à vos critères" pour chaque véhicule qui ne correspond pas.
         voiture_compatible = False
 
-        for dictionnaire in lecsv.infos:
+        for dictionnaire in le_csv.infos:
             if (
                 dictionnaire["Marque"] == choix_finaux[0] and
                 dictionnaire["Type"] == choix_finaux[1] and
                 dictionnaire["Consomation"] == choix_finaux[2] and
                 dictionnaire["Prix"] == choix_finaux[3]):
                 
-                for texte in txt.infos_supplementaire:
+                for texte in le_txt.infos_supplementaire:
                     if (
                         texte[0] == dictionnaire["Modele"] and
                         texte[1] == choix_finaux[4] and
@@ -111,12 +110,13 @@ def choisir_option(choix_selectionner):
                         resultat.write("-" + dictionnaire["Modele"])
 
                         voiture_compatible = True
-                        break
 
         if voiture_compatible == False:
-            resultat.write("Aucune de nos voitures ne correspond à vos critères")
+            resultat.write("Aucune de nos voitures ne correspond a vos criteres.")
 
         resultat.close()
+
+        # Fermer la fenêtre tkinter.
         root.destroy() 
 
 # Créer/lancer notre fenêtre tkinter.
