@@ -1,4 +1,4 @@
-txt = open("Toyota_Corolla.txt", "r") #r pour lecture
+txt = open("caracteristiques.txt", "r") #r pour lecture
 liste_voiture = txt.readlines() #lire tout et vient creer une liste et chaque ligne de la liste est un element
 
 infos_01 = [] #Liste vide
