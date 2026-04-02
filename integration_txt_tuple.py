@@ -1,23 +1,25 @@
-txt = open("caracteristiques.txt", "r") #r pour lecture
-liste_voiture = txt.readlines() #lire tout et vient creer une liste et chaque ligne de la liste est un element
+"""
 
-infos_01 = [] #Liste vide
+Projet_02: Fichier d'extraction de .txt
+Nom: Tommy Brunelle, Vincent Goulet
 
-#Pour chaque ligne dans le .txt
+"""
+txt = open("caracteristiques.txt", "r") 
+liste_voiture = txt.readlines()
+
+# La liste vide qui sert à stocker nos tuples finaux créés à partir du .txt.
+infos_supplementaire = [] 
+
 for ligne in liste_voiture:
 
-    #strip pour enlever les espaces au debut et a la fin
     ligne = ligne.strip()
-
-    #split pour creer des elements
     detail = ligne.split(", ")
 
-    #transforme les elements de la liste de chaque ligne en tuple
+    # La variable qui vient placer chaque detail de notre .split dans un tuple.
     voiture_tuple = (detail[0], detail[1]) 
 
-    #on ajoute le tuple dans la liste infos
-    infos_01.append(voiture_tuple)
+    # Ajouter le tuple créé à la fin de la liste infos_supplementaire.
+    infos_supplementaire.append(voiture_tuple)
 
-#ferme le fichier
 txt.close()
 

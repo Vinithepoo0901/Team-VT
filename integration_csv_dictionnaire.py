@@ -1,3 +1,9 @@
+"""
+
+Projet_02: Fichier d'extraction de .csv
+Nom: Tommy Brunelle, Vincent Goulet
+
+"""
 csv = open("caracteristiques.csv", "r")
 liste_voiture = csv.readlines()
 

@@ -16,8 +16,8 @@ marque = list(set(dictionnaire["Marque"] for dictionnaire in lecsv.infos))
 type = list(set(dictionnaire["Type"] for dictionnaire in lecsv.infos))
 consomation = list(set(dictionnaire["Consomation"] for dictionnaire in lecsv.infos))
 prix = list(set(dictionnaire["Prix"] for dictionnaire in lecsv.infos))
-transmission = list(set(i[0] for i in txt.infos_01))
-traction = list(set(i[1] for i in txt.infos_01))
+transmission = list(set(i[0] for i in txt.infos_supplementaire))
+traction = list(set(i[1] for i in txt.infos_supplementaire))
 
 #Liste de nos questions (Va falloir trouver le moyen de changer ca par dequoi qui va chercher nos valeurs direct dans le .csv et .txt)
 questions = [
@@ -82,13 +82,13 @@ def choisir_option(choix_selectionner):
                 i["Consomation"] == choix[2] and
                 i["Prix"] == choix[3]):
                 
-                for texte in txt.infos_01:
+                for texte in txt.infos_supplementaire:
                     if (
                         texte[0] == choix[4] and
                         texte[1] == choix[5]):
 
-                        resultat.write("Voitures qui correspondent a vos criteres: ")
-                        resultat.write(i["Modele"])
+                        resultat.write("Voitures qui correspondent a vos criteres: \n")
+                        resultat.write("-" + i["Modele"])
 
                         voiture_compatible = True
 
