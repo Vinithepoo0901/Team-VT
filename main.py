@@ -1,6 +1,12 @@
+"""
+
+Projet_02: Filtreur de voiture
+Nom: Tommy Brunelle, Vincent Goulet
+
+"""
 import tkinter as tk
 import integration_csv_dictionnaire as lecsv
-import integration_txt_tuple_01 as txt
+import integration_txt_tuple as txt
 
 #allo
 
