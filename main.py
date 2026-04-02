@@ -12,13 +12,13 @@ import integration_txt_tuple as le_txt
 choix_finaux = []
 
 # Les variables qui contiennent une liste créée avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
-# set efface les doublons présents et list vient indexer le tout pour pouvoir utiliser nos données. 
-marque = list(set(dictionnaire["Marque"] for dictionnaire in le_csv.infos))
-type = list(set(dictionnaire["Type"] for dictionnaire in le_csv.infos))
-consomation = list(set(dictionnaire["Consomation"] for dictionnaire in le_csv.infos))
-prix = list(set(dictionnaire["Prix"] for dictionnaire in le_csv.infos))
-transmission = list(set(tuple[1] for tuple in le_txt.infos_supplementaire))
-traction = list(set(tuple[2] for tuple in le_txt.infos_supplementaire))
+# set efface les doublons présents
+marque = {dictionnaire["Marque"] for dictionnaire in le_csv.infos}
+type = {dictionnaire["Type"] for dictionnaire in le_csv.infos}
+consomation = {dictionnaire["Consomation"] for dictionnaire in le_csv.infos}
+prix = {dictionnaire["Prix"] for dictionnaire in le_csv.infos}
+transmission = {tuple[1] for tuple in le_txt.infos_supplementaire}
+traction = {tuple[2] for tuple in le_txt.infos_supplementaire}
 
 # Variable qui contient la liste de dictionnaires utilisés pour générer les titres et les choix de notre tkinter.
 questions = [
@@ -53,7 +53,7 @@ def montrer_question_actuelle():
         root,
         text = questions[question_actuelle]["question"],
         font = ("Arial", 12, "bold")
-        ).pack(pady = 12) 
+    ).pack(pady = 12) 
 
     # Générer les choix dans le menu tkinter.
     for element in questions[question_actuelle]["options"]:
@@ -63,7 +63,7 @@ def montrer_question_actuelle():
             width = 20,
             #
             command = lambda choix = element: choisir_option(choix)
-            ).pack(pady = 6)
+        ).pack(pady = 6)
 
 
 def choisir_option(choix_selectionner):
