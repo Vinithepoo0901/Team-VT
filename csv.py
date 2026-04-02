@@ -1,6 +1,6 @@
 import tkinter as tk
 import integration_csv_dictionnaire as lecsv
-import integration_txt_set_01 as txt
+import integration_txt_tuple_01 as txt
 
 #allo
 
@@ -71,14 +71,20 @@ def choisir_option(choix_selectionner):
 
         for i in lecsv.infos:
             if (
-            i["Marque"] == choix[0] and
-            i["Type"] == choix[1] and
-            i["Consomation"] == choix[2] and
-            i["Prix de depart"] == choix[3]):
-                resultat.write("Voitures qui correspondent a vos criteres: ")
-                resultat.write(i["Modele"])
+                i["Marque"] == choix[0] and
+                i["Type"] == choix[1] and
+                i["Consomation"] == choix[2] and
+                i["Prix de depart"] == choix[3]):
+                
+                for texte in txt.infos_01:
+                    if (
+                        texte[0] == choix[4] and
+                        texte[1] == choix[5]):
 
-                voiture_compatible = True
+                        resultat.write("Voitures qui correspondent a vos criteres: ")
+                        resultat.write(i["Modele"])
+
+                        voiture_compatible = True
 
         if voiture_compatible == False:
             resultat.write("Aucun match dsl")

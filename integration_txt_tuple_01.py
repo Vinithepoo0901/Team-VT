@@ -13,10 +13,10 @@ for ligne in liste_voiture:
     detail = ligne.split(", ")
 
     #transforme les elements de la liste de chaque ligne en tuple
-    voiture_set = (detail[0], detail[1]) 
+    voiture_tuple = (detail[0], detail[1]) 
 
     #on ajoute le tuple dans la liste infos
-    infos_01.append(voiture_set)
+    infos_01.append(voiture_tuple)
 
 #ferme le fichier
 txt.close()
