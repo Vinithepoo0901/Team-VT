@@ -38,7 +38,7 @@ def montrer_question_actuelle():
     """
     Entrées: Les strings établis pour les titres/questions et les éléments dans la liste "options".
     Sortie: Les choix sélectionnés sur chaque menu tkinter.
-    But: Permettre de générer une boite contextuelle avec questions et options à choisir.
+    But: Permettre de générer une boite textuelle avec questions et options à choisir.
 
     """
 
