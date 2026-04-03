@@ -11,8 +11,7 @@ import integration_txt_tuple as le_txt
 # La liste vide qui sert à stocker nos choix finaux sélectionnés à partir du tkinter.
 choix_finaux = []
 
-# Les variables qui contiennent une liste créée avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
-# set efface les doublons présents
+# Les variables qui contiennent un set créé avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
 marque = {dictionnaire["Marque"] for dictionnaire in le_csv.infos}
 type = {dictionnaire["Type"] for dictionnaire in le_csv.infos}
 consomation = {dictionnaire["Consomation"] for dictionnaire in le_csv.infos}
@@ -66,7 +65,7 @@ def montrer_question_actuelle():
         ).pack(pady = 6)
 
 
-def choisir_option(choix_selectionner):
+def choisir_option(choix_fait):
 
     """
     Entrées: Les choix sélectionnés sur chaque menu tkinter de la fonction précédente.
@@ -78,7 +77,7 @@ def choisir_option(choix_selectionner):
     global question_actuelle
 
     # Ajouter le choix sélectionné à la fin de la liste choix_finaux.
-    choix_finaux.append(choix_selectionner)
+    choix_finaux.append(choix_fait)
 
     # Changer la valeur de la variable globale question_actuelle pour générer la prochaine question.
     question_actuelle += 1
