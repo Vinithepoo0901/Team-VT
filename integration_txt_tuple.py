@@ -4,22 +4,28 @@ Projet_02: Fichier d'extraction de .txt
 Nom: Tommy Brunelle, Vincent Goulet
 
 """
-txt = open("caracteristiques.txt", "r") 
-liste_voiture = txt.readlines()
+try:
 
-# La liste vide qui sert à stocker nos tuples finaux créés à partir du .txt.
-infos_supplementaire = [] 
+    txt = open("caracteristiques.txt", "r") 
+    liste_voiture = txt.readlines()
 
-for ligne in liste_voiture:
+    # La liste vide qui sert à stocker nos tuples finaux créés à partir du .txt.
+    infos_supplementaire = [] 
 
-    ligne = ligne.strip()
-    detail = ligne.split(", ")
+    for ligne in liste_voiture:
 
-    # La variable qui vient placer chaque detail de notre .split dans un tuple.
-    voiture_tuple = (detail[0], detail[1], detail[2]) 
+        ligne = ligne.strip()
+        detail = ligne.split(", ")
 
-    # Ajouter le tuple créé à la fin de la liste infos_supplementaire.
-    infos_supplementaire.append(voiture_tuple)
+        # La variable qui vient placer chaque detail de notre .split dans un tuple.
+        voiture_tuple = (detail[0], detail[1], detail[2]) 
 
-txt.close()
+        # Ajouter le tuple créé à la fin de la liste infos_supplementaire.
+        infos_supplementaire.append(voiture_tuple)
+
+    txt.close()
+
+except FileNotFoundError:
+    print("Erreur : Le fichier texte désiré est introuvable.")
+    
 
