@@ -4,29 +4,34 @@ Projet_02: Fichier d'extraction de .csv
 Nom: Tommy Brunelle, Vincent Goulet
 
 """
-csv = open("caracteristiques.csv", "r")
-liste_voiture = csv.readlines()
+try:
 
-# La liste vide qui sert à stocker nos dictionnaires finaux créés à partir du .csv.
-infos = [] 
+    csv = open("caracteristiques.csv", "r")
+    liste_voiture = csv.readlines()
 
-for ligne in liste_voiture:
+    # La liste vide qui sert à stocker nos dictionnaires finaux créés à partir du .csv.
+    infos = [] 
 
-    ligne = ligne.strip()
-    detail = ligne.split(";")
+    for ligne in liste_voiture:
 
-    # La variable qui vient placer chaque detail de notre .split à une catégorie dans un dictionnaire.
-    dictionnaire = {
-        "Modele": detail[1],
-        "Marque": detail[2],
-        "Type": detail[3],
-        "Consomation" : detail[4],
-        "Prix" : detail[5]
-        }
+        ligne = ligne.strip()
+        detail = ligne.split(";")
 
-    # Ajouter le dictionnaire créé à la fin de la liste infos.
-    infos.append(dictionnaire)
+        # La variable qui vient placer chaque detail de notre .split à une catégorie dans un dictionnaire.
+        dictionnaire = {
+            "Modele": detail[1],
+            "Marque": detail[2],
+            "Type": detail[3],
+            "Consomation" : detail[4],
+            "Prix" : detail[5]
+            }
 
-csv.close()
+        # Ajouter le dictionnaire créé à la fin de la liste infos.
+        infos.append(dictionnaire)
 
+    csv.close()
+
+except FileNotFoundError:
+    print("Erreur : Le fichier csv désiré est introuvable.")
+    
 
