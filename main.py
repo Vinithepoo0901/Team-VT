@@ -11,6 +11,7 @@ import integration_txt_tuple as le_txt
 # La liste vide qui sert à stocker nos choix finaux sélectionnés à partir du tkinter.
 choix_finaux = []
 
+# Essayer de créer nos 6 variables d'options pour voir si nos listes et fichiers ont bien été traités/importés.
 try:
 
     # Les variables qui contiennent un set créé avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
@@ -107,11 +108,11 @@ def choisir_option(choix_fait):
                 dictionnaire["Consomation"] == choix_finaux[2] and
                 dictionnaire["Prix"] == choix_finaux[3]):
                 
-                for texte in le_txt.infos_supplementaire:
+                for tuple in le_txt.infos_supplementaire:
                     if (
-                        texte[0] == dictionnaire["Modele"] and
-                        texte[1] == choix_finaux[4] and
-                        texte[2] == choix_finaux[5]):
+                        tuple[1] == choix_finaux[4] and
+                        tuple[2] == choix_finaux[5] and
+                        tuple[0] == dictionnaire["Modele"]):
 
                         resultat.write("Voitures qui correspondent a vos criteres: \n")
                         resultat.write("-" + dictionnaire["Modele"])
