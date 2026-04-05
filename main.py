@@ -69,7 +69,6 @@ def montrer_question_actuelle():
             root,
             text = element,
             width = 20,
-            #
             command = lambda choix = element: choisir_option(choix)
         ).pack(pady = 6)
 
