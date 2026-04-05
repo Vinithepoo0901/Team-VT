@@ -26,6 +26,8 @@ try:
     txt.close()
 
 except FileNotFoundError:
-    print("Erreur : Le fichier texte désiré est introuvable.")
+    print("Erreur : Le fichier .txt désiré est introuvable.\
+    \nAssurez-vous qu'il n'y ait pas d'erreurs dans son nom.\n")
+    
     
 

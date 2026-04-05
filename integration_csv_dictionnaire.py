@@ -32,6 +32,8 @@ try:
     csv.close()
 
 except FileNotFoundError:
-    print("Erreur : Le fichier csv désiré est introuvable.")
+    print("Erreur : Le fichier .csv désiré est introuvable.\
+     \nAssurez-vous qu'il n'y ait pas d'erreurs dans son nom.\n")
+    
     
 

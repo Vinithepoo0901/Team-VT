@@ -11,13 +11,21 @@ import integration_txt_tuple as le_txt
 # La liste vide qui sert à stocker nos choix finaux sélectionnés à partir du tkinter.
 choix_finaux = []
 
-# Les variables qui contiennent un set créé avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
-marque = {dictionnaire["Marque"] for dictionnaire in le_csv.infos}
-type = {dictionnaire["Type"] for dictionnaire in le_csv.infos}
-consomation = {dictionnaire["Consomation"] for dictionnaire in le_csv.infos}
-prix = {dictionnaire["Prix"] for dictionnaire in le_csv.infos}
-transmission = {tuple[1] for tuple in le_txt.infos_supplementaire}
-traction = {tuple[2] for tuple in le_txt.infos_supplementaire}
+try:
+
+    # Les variables qui contiennent un set créé avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
+    marque = {dictionnaire["Marque"] for dictionnaire in le_csv.infos}
+    type = {dictionnaire["Type"] for dictionnaire in le_csv.infos}
+    consomation = {dictionnaire["Consomation"] for dictionnaire in le_csv.infos}
+    prix = {dictionnaire["Prix"] for dictionnaire in le_csv.infos}
+    transmission = {tuple[1] for tuple in le_txt.infos_supplementaire}
+    traction = {tuple[2] for tuple in le_txt.infos_supplementaire}
+
+except FileNotFoundError:
+    exit()
+
+except AttributeError:
+    exit()
 
 # Variable qui contient la liste de dictionnaires utilisés pour générer les titres et les choix de notre tkinter.
 questions = [
