@@ -105,7 +105,7 @@ def choisir_option(choix_fait):
                 dictionnaire["Marque"] == choix_finaux[0] and
                 dictionnaire["Type"] == choix_finaux[1] and
                 dictionnaire["Consommation"] == choix_finaux[2] and
-                dictionnaire["Prix"] == choix_finaux[3]):
+                transformer_prix(dictionnaire["Prix"]) <= transformer_prix(choix_finaux[3])):
                 
                 for tuple in le_txt.infos_supplementaire:
                     if (
@@ -125,6 +125,18 @@ def choisir_option(choix_fait):
 
         # Fermer la fenêtre tkinter.
         root.destroy() 
+
+def transformer_prix(prix_string):
+
+    """
+    Entrées: Les strings du montant choisi par l'utilisateur dans la boîte textuelle tkinter.
+    Sortie: La valeur du montant choisi, mais en integer.
+    But: Permettre de filtrer avec "<=" dans la fonction choisir_option.
+
+    """
+    prix_transforme = prix_string.replace(" ", "")
+    prix_transforme_final = prix_transforme.replace("$", "")
+    return int(prix_transforme_final)
 
 # Créer/lancer notre fenêtre tkinter.
 root = tk.Tk()
