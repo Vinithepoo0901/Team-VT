@@ -27,7 +27,8 @@ try:
 
 except FileNotFoundError:
     print("Erreur : Le fichier .txt désiré est introuvable.\
-    \nAssurez-vous qu'il n'y ait pas d'erreurs dans son nom.\n")
+        \nAssurez-vous qu'il n'y ait pas d'erreurs dans son nom et qu'il soit bien\
+        \ndans le même dossier que votre main.py\n")
     
     
 
