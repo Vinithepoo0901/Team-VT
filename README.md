@@ -6,7 +6,7 @@ Le sélectionneur/filtreur de voitures
 ## ENTRÉES
 ### Inventaire créé à partir de 2 types de fichiers:
 - ### Fichier .csv:
-  Dans un fichier .csv, sur chaque ligne vous devrez inscrire le modèle, la marque, le type, la consommation puis le prix des modèles affichés par le concessionnaire voulu. Bien important de précéder chaque information par un point-virgule ( ; ). Un exemple vous est fournis plus bas. 
+  Dans un fichier .csv, sur chaque ligne vous devrez inscrire le modèle, la marque, le type, la consommation puis le prix des modèles affichés par le concessionnaire voulu. Bien important de précéder chaque information par un point-virgule ( ; ). Un exemple vous est fournis plus bas. Si vous créez votre .csv dans excel, assurez-vous de laisser la colonne "A" vide.
 
   Assurez-vous de bien avoir nommé votre fichier "caracteristiques.csv" et de l'enregistrer dans un endroit présent dans le même dossier principal où vous lisez/lancez le code "main.py".
 - ### Fichier .txt:
@@ -23,6 +23,8 @@ Dans l'éventualité ou aucun des véhicules recueillis dans vos fichiers ne cor
 # EXEMPLES DE FICHIERS
 ### Fichier .csv:
 ![alt text](exemple_csv.png)
+### Fichier .csv dans excel:
+![alt text](exemple_csv_excel.png)
 ### Fichier .txt:
 ![alt text](exemple_txt.png)
 
