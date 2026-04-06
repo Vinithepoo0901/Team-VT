@@ -22,7 +22,7 @@ try:
             "Modele": detail[1],
             "Marque": detail[2],
             "Type": detail[3],
-            "Consomation" : detail[4],
+            "Consommation" : detail[4],
             "Prix" : detail[5]
             }
 
