@@ -1,6 +1,6 @@
 """
 
-Projet_02: Filtreur de voiture
+Projet_02: Trieur de voiture
 Nom: Tommy Brunelle, Vincent Goulet
 
 """
@@ -119,7 +119,7 @@ def choisir_option(choix_fait):
                         voiture_compatible = True
 
         if voiture_compatible == False:
-            resultat.write("Aucune de nos voitures ne correspond a vos criteres.")
+            resultat.write("Aucune des voitures de ce concessionnaire ne correspond a vos criteres.")
 
         resultat.close()
 
