@@ -17,7 +17,7 @@ try:
     # Les variables qui contiennent un set créé avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
     marque = {dictionnaire["Marque"] for dictionnaire in le_csv.infos}
     type = {dictionnaire["Type"] for dictionnaire in le_csv.infos}
-    consomation = {dictionnaire["Consomation"] for dictionnaire in le_csv.infos}
+    consommation = {dictionnaire["Consommation"] for dictionnaire in le_csv.infos}
     prix = {dictionnaire["Prix"] for dictionnaire in le_csv.infos}
     transmission = {tuple[1] for tuple in le_txt.infos_supplementaire}
     traction = {tuple[2] for tuple in le_txt.infos_supplementaire}
@@ -32,7 +32,7 @@ except AttributeError:
 questions = [
     {"question": "Quelle Marque ?", "options": marque},
     {"question": "Quel type ?", "options": type},
-    {"question": "Quel consommation ?", "options": consomation},
+    {"question": "Quel consommation ?", "options": consommation},
     {"question": "Quel est votre budget ?", "options": prix},
     {"question": "Quelle transmission?", "options": transmission},
     {"question": "Quelle traction?", "options": traction}
@@ -44,7 +44,7 @@ question_actuelle = 0
 def montrer_question_actuelle():
 
     """
-    Entrées: Les strings établis pour les titres/questions et les éléments dans la liste "options".
+    Entrées: Les strings établis pour les titres/questions et les éléments de la liste "options".
     Sortie: Les choix sélectionnés sur chaque menu tkinter.
     But: Permettre de générer une boite textuelle avec questions et options à choisir.
 
@@ -78,7 +78,7 @@ def choisir_option(choix_fait):
     """
     Entrées: Les choix sélectionnés sur chaque menu tkinter de la fonction précédente.
     Sortie: Un fichier .txt
-    But: Permettre au client de voir quel véhicule correspond à ses critères et si nous l'avons en stock.
+    But: Permettre au client de voir quels véhicules correspondent à ses critères et si nous l'avons en stock.
 
     """
 
@@ -104,7 +104,7 @@ def choisir_option(choix_fait):
             if (
                 dictionnaire["Marque"] == choix_finaux[0] and
                 dictionnaire["Type"] == choix_finaux[1] and
-                dictionnaire["Consomation"] == choix_finaux[2] and
+                dictionnaire["Consommation"] == choix_finaux[2] and
                 dictionnaire["Prix"] == choix_finaux[3]):
                 
                 for tuple in le_txt.infos_supplementaire:
