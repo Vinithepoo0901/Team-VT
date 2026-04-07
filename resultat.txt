@@ -1,3 +1,2 @@
 Voitures qui correspondent a vos criteres: 
--Equinox
--Trailblazer
+Aucune des voitures de ce concessionnaire ne correspond a vos criteres.
