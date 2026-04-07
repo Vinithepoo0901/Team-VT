@@ -6,14 +6,14 @@ Le sélectionneur/filtreur de voitures.
 ## ENTRÉES
 ### Inventaire créé à partir de 2 types de fichiers:
 - ### Fichier .csv:
-  Dans un fichier .csv, sur chaque ligne vous devrez inscrire le modèle, la marque, le type, la consommation puis le prix des modèles affichés par le concessionnaire voulu. Bien important de précéder chaque information par un point-virgule ( ; ). Un exemple vous est fournis plus bas. Si vous créez votre .csv dans excel, assurez-vous de laisser la colonne "A" vide.
+  Dans un fichier .csv, sur chaque ligne vous devrez inscrire le modèle, la marque, le type, la consommation puis le prix des modèles affichés par le concessionnaire voulu. Bien important de précéder chaque information par un point-virgule ( ; ). Si vous créez votre .csv dans excel, assurez-vous de laisser la colonne "A" vide. Aucune autre ponctuation ne devrait être présente dans le fichier. Un exemple vous est fournis plus bas.
 
   Assurez-vous de bien avoir nommé votre fichier "caracteristiques.csv" et de l'enregistrer dans le même dossier où se situe le code "main.py". 
 
   ![alt text](exemple_csv.png)
   ![alt text](exemple_csv_excel.png)
 - ### Fichier .txt:
-  Dans un fichier .txt, (pour les mêmes voitures sélectionnées pour votre fichier .csv) sur chaque ligne vous devrez inscrire le modèle, sa transmission puis son type de traction. Bien important de séparer chaque information par une virgule ( , ) suivi d'un espace. Un exemple vous est fournis plus bas.
+  Dans un fichier .txt, (pour les mêmes voitures sélectionnées pour votre fichier .csv) sur chaque ligne vous devrez inscrire le modèle, sa transmission puis son type de traction. Bien important de séparer chaque information par une virgule ( , ) suivi d'un espace.Aucune autre ponctuation ne devrait être présente dans le fichier. Un exemple vous est fournis plus bas.
 
   Assurez-vous de bien avoir nommé votre fichier "caracteristiques.txt" et de l'enregistrer dans le même dossier où se situe le code "main.py". 
 
