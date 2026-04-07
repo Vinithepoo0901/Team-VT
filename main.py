@@ -11,10 +11,9 @@ import integration_txt_tuple as le_txt
 # La liste vide qui sert à stocker nos choix finaux sélectionnés à partir du tkinter.
 choix_finaux = []
 
-# Essayer de créer nos 6 variables d'options pour voir si nos listes et fichiers ont bien été traités/importés.
+# Essayer de créer les 6 variables d'options pour voir si nos fichiers ont bien été traités/importés.
 try:
 
-    # Les variables qui contiennent un set créé avec les éléments présents dans "Marque" pour chaque dictionnaire dans lecsv.infos
     marque = {dictionnaire["Marque"] for dictionnaire in le_csv.infos}
     type = {dictionnaire["Type"] for dictionnaire in le_csv.infos}
     consommation = {dictionnaire["Consommation"] for dictionnaire in le_csv.infos}
@@ -97,7 +96,7 @@ def choisir_option(choix_fait):
     else:
         resultat = open("resultat.txt", "w")
 
-        # Variable pour éviter de write "Aucune de nos voitures ne correspond à vos critères" pour chaque véhicule qui ne correspond pas.
+        # Variable pour éviter de write le même message pour chaque véhicule qui ne correspond pas.
         voiture_compatible = False
 
         for dictionnaire in le_csv.infos:
@@ -105,13 +104,15 @@ def choisir_option(choix_fait):
                 dictionnaire["Marque"] == choix_finaux[0] and
                 dictionnaire["Type"] == choix_finaux[1] and
                 dictionnaire["Consommation"] == choix_finaux[2] and
-                transformer_prix(dictionnaire["Prix"]) <= transformer_prix(choix_finaux[3])):
+                transformer_prix(dictionnaire["Prix"]) <= transformer_prix(choix_finaux[3])
+            ):
                 
                 for tuple in le_txt.infos_supplementaire:
                     if (
                         tuple[1] == choix_finaux[4] and
                         tuple[2] == choix_finaux[5] and
-                        tuple[0] == dictionnaire["Modele"]):
+                        tuple[0] == dictionnaire["Modele"]
+                    ):
 
                         resultat.write("Voitures qui correspondent a vos criteres: \n")
                         resultat.write("-" + dictionnaire["Modele"])
