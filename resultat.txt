@@ -1,2 +1,3 @@
 Voitures qui correspondent a vos criteres: 
--Corolla
+-Equinox
+-Trailblazer
