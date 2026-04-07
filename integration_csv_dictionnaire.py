@@ -6,7 +6,7 @@ Nom: Tommy Brunelle, Vincent Goulet
 """
 try:
 
-    csv = open("caracteristiques.csv", "r")
+    csv = open("caracteritiques.csv", "r")
     liste_voiture = csv.readlines()
 
     # La liste vide qui sert à stocker nos dictionnaires finaux créés à partir du .csv.
@@ -35,3 +35,9 @@ except FileNotFoundError:
     print("Erreur : Le fichier .csv désiré est introuvable.\
         \nAssurez-vous qu'il n'y ait pas d'erreurs dans son nom et qu'il soit bien\
         \ndans le même dossier que votre main.py\n")
+    
+except IndexError:
+    print("Erreur : Votre .csv ne contient pas le bon nombre d'éléments.\
+        \nAssurez-vous d'avoir 5 points-virgules ou colonnes dans votre fichier.")
+    exit()
+    
