@@ -27,6 +27,9 @@ except FileNotFoundError:
 except AttributeError:
     exit()
 
+except IndexError:
+    exit()
+
 # La liste de dictionnaires utilisés pour générer les titres et les choix de notre tkinter.
 questions = [
     {"question": "Quelle Marque ?", "options": marque},
