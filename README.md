@@ -18,7 +18,7 @@ Le sélectionneur/filtreur de voitures.
   Assurez-vous de bien avoir nommé votre fichier "caracteristiques.txt" et de l'enregistrer dans le même dossier où se situe le code "main.py". 
 
   ![alt text](exemple_Txt.png)
-## Fonctionnement 
+## FONCTIONNEMENT
 Une fois vos fichiers créés, vous n'avez qu'à lancer le code "main.py". Plusieurs boîtes textuelles vous demanderons de choisir entre quelques options. 
 
 ## SORTIE
