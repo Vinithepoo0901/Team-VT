@@ -117,7 +117,6 @@ def choisir_option(choix_fait):
                         tuple[2] == choix_finaux[5] and
                         tuple[0] == dictionnaire["Modele"]
                     ):
-
                         resultat.write("-" + dictionnaire["Modele"] +"\n")
 
                         voiture_compatible = True
