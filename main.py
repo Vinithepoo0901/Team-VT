@@ -40,6 +40,7 @@ questions = [
 # Variable à insérer dans nos fonctions qui permet d'afficher les bonnes options pour les menus tkinter.
 question_actuelle = 0
 
+
 def montrer_question_actuelle():
 
     """
@@ -128,6 +129,7 @@ def choisir_option(choix_fait):
 
         # Fermer la fenêtre tkinter.
         root.destroy() 
+
 
 def transformer_prix(prix_string):
 
