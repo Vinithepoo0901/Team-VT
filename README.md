@@ -10,14 +10,14 @@ Le sélectionneur/filtreur de voitures.
 
   Assurez-vous de bien avoir nommé votre fichier "caracteristiques.csv" et de l'enregistrer dans le même dossier où se situe le code "main.py". 
 
-  ![alt text](exemple_csv.png)
-  ![alt text](exemple_csv_excel.png)
+  ![alt text](exemple_Csv.png)
+  ![alt text](exemple_Csv_Excel.png)
 - ### Fichier .txt:
   Dans un fichier .txt, (pour les mêmes voitures sélectionnées pour votre fichier .csv) sur chaque ligne vous devrez inscrire le modèle, sa transmission puis son type de traction. Bien important de séparer chaque information par une virgule ( , ) suivi d'un espace. Les caractères spéciaux (par exemple, les accents) ne sont pas pris en compte. Aucune autre ponctuation ne devrait être présente dans le fichier. Un exemple vous est fournis plus bas.
 
   Assurez-vous de bien avoir nommé votre fichier "caracteristiques.txt" et de l'enregistrer dans le même dossier où se situe le code "main.py". 
 
-  ![alt text](exemple_txt.png)
+  ![alt text](exemple_Txt.png)
 ## Fonctionnement 
 Une fois vos fichiers créés, vous n'avez qu'à lancer le code "main.py". Plusieurs boîtes textuelles vous demanderons de choisir entre quelques options. 
 
