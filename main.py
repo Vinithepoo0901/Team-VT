@@ -27,7 +27,7 @@ except FileNotFoundError:
 except AttributeError:
     exit()
 
-# Variable qui contient la liste de dictionnaires utilisés pour générer les titres et les choix de notre tkinter.
+# La liste de dictionnaires utilisés pour générer les titres et les choix de notre tkinter.
 questions = [
     {"question": "Quelle Marque ?", "options": marque},
     {"question": "Quel type ?", "options": type},
@@ -37,13 +37,13 @@ questions = [
     {"question": "Quelle traction?", "options": traction}
 ]
 
-# Variable à insérer dans nos fonctions qui permet de générer tous les menus tkinter nécessaires.
+# Variable à insérer dans nos fonctions qui permet d'afficher les bonnes options pour les menus tkinter.
 question_actuelle = 0
 
 def montrer_question_actuelle():
 
     """
-    Entrées: Les strings établis pour les titres/questions et les éléments de la liste "options".
+    Entrées: Les textes établis pour les titres/questions et les éléments de la liste "options".
     Sortie: Les choix sélectionnés sur chaque menu tkinter.
     But: Permettre de générer une boite textuelle avec questions et options à choisir.
 
@@ -76,8 +76,9 @@ def choisir_option(choix_fait):
 
     """
     Entrées: Les choix sélectionnés sur chaque menu tkinter de la fonction précédente.
-    Sortie: Un fichier .txt
-    But: Permettre au client de voir quels véhicules correspondent à ses critères et si nous l'avons en stock.
+    Sortie: Un fichier .txt qui contient le ou les résultats compatibles.
+    But: Permettre au client de voir quels véhicules correspondent à ses critères\
+    et si le concessionnaire l'a en stock.
 
     """
 
@@ -99,6 +100,8 @@ def choisir_option(choix_fait):
         # Variable pour éviter de write le même message pour chaque véhicule qui ne correspond pas.
         voiture_compatible = False
 
+        resultat.write("Voitures qui correspondent a vos criteres: \n")
+
         for dictionnaire in le_csv.infos:
             if (
                 dictionnaire["Marque"] == choix_finaux[0] and
@@ -114,8 +117,7 @@ def choisir_option(choix_fait):
                         tuple[0] == dictionnaire["Modele"]
                     ):
 
-                        resultat.write("Voitures qui correspondent a vos criteres: \n")
-                        resultat.write("-" + dictionnaire["Modele"])
+                        resultat.write("-" + dictionnaire["Modele"] +"\n")
 
                         voiture_compatible = True
 
@@ -130,7 +132,7 @@ def choisir_option(choix_fait):
 def transformer_prix(prix_string):
 
     """
-    Entrées: Les strings du montant choisi par l'utilisateur dans la boîte textuelle tkinter.
+    Entrées: Les textes du montant choisi par l'utilisateur dans la boîte textuelle tkinter.
     Sortie: La valeur du montant choisi, mais en integer.
     But: Permettre de filtrer avec "<=" dans la fonction choisir_option.
 
