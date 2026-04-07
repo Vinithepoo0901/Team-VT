@@ -1,1 +1,1 @@
-['Toyota', 'VUS-Compacte', 'Electrique', '55 000 $']
+Aucune de nos voitures ne correspond a vos criteres.

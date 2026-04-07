@@ -1,30 +1,40 @@
-csv = open("Projet-2-excel.csv", "r") #r pour lecture
-liste_voiture = csv.readlines() #lire tout et vient creer une liste et chaque ligne de la liste est un element
+"""
 
-infos = [] #Liste vide
+Projet_02: Fichier d'extraction de .csv
+Nom: Tommy Brunelle, Vincent Goulet
 
-#Pour chaque ligne dans le .txt
-for ligne in liste_voiture:
+"""
+try:
 
-    #strip pour enlever les espaces au debut et a la fin
-    ligne = ligne.strip()
+    csv = open("caracteristiques.csv", "r")
+    liste_voiture = csv.readlines()
 
-    #split pour creer des elements
-    detail = ligne.split(";")
+    # La liste vide qui sert à stocker nos dictionnaires finaux créés à partir du .csv.
+    infos = [] 
 
-    #transforme les elements de la liste de chaque ligne en dictionnaire
-    dictionnaire = {
-        "Marque": detail[1],
-        "Type": detail[2],
-        "Consomation" : detail[3],
-        "Prix de depart" : detail[4]
-    }
+    for ligne in liste_voiture:
 
-    #on ajoute le set dans la liste infos
-    infos.append(dictionnaire)
+        ligne = ligne.strip()
+        detail = ligne.split(";")
 
-#ferme le fichier
-csv.close()
+        # La variable qui vient placer chaque detail de notre .split à une catégorie dans un dictionnaire.
+        dictionnaire = {
+            "Modele": detail[1],
+            "Marque": detail[2],
+            "Type": detail[3],
+            "Consommation" : detail[4],
+            "Prix" : detail[5]
+            }
 
-print (detail[0])
+        # Ajouter le dictionnaire créé à la fin de la liste infos.
+        infos.append(dictionnaire)
+
+    csv.close()
+
+except FileNotFoundError:
+    print("Erreur : Le fichier .csv désiré est introuvable.\
+        \nAssurez-vous qu'il n'y ait pas d'erreurs dans son nom et qu'il soit bien\
+        \ndans le même dossier que votre main.py\n")
+    
+    
 
