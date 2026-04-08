@@ -6,7 +6,7 @@ Nom: Tommy Brunelle, Vincent Goulet
 """
 try:
 
-    txt = open("caracteistiques.txt", "r") 
+    txt = open("caracteristiques.txt", "r") 
     liste_voiture = txt.readlines()
 
     # La liste vide qui sert à stocker nos tuples finaux créés à partir du .txt.

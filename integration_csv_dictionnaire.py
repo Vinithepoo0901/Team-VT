@@ -6,7 +6,7 @@ Nom: Tommy Brunelle, Vincent Goulet
 """
 try:
 
-    csv = open("caracteritiques.csv", "r")
+    csv = open("caracteristiques.csv", "r")
     liste_voiture = csv.readlines()
 
     # La liste vide qui sert à stocker nos dictionnaires finaux créés à partir du .csv.
